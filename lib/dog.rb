@@ -1,7 +1,7 @@
 class Dog
   attr_accessor :id, :name, :breed
 
-  def initialize(id = null, attribute_hash)
+  def initialize(id = nil, attribute_hash)
     self.id = id
     attribute_hash.each do |attr, value|
       self.send("#{attr}=",value)
