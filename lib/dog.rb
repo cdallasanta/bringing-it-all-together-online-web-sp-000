@@ -26,7 +26,6 @@ class Dog
   end
 
   def save
-    binding.pry
     if self.id
       self.update
     else
@@ -72,6 +71,7 @@ class Dog
   end
 
   def self.find_or_create_by(hash)
+    binding.pry
     sql = <<-SQL
       SELECT *
       FROM dogs
