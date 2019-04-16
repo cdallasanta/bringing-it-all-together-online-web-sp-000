@@ -1,10 +1,10 @@
 class Dog
   attr_accessor :id, :name, :breed
 
-  def initialize(id = null, name, breed)
+  def initialize(id = null, attribute_hash)
     self.id = id
-    self.name = name
-    self.breed = breed
+    attribute_hash.each do |attr, value|
+      
   end
 
   def self.create_table
@@ -36,4 +36,7 @@ class Dog
     end
   end
 
+  def self.create(hash)
+    new_dog = Dog.new
+    new_dog.save
 end
