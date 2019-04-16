@@ -4,7 +4,8 @@ class Dog
   def initialize(id = null, attribute_hash)
     self.id = id
     attribute_hash.each do |attr, value|
-      
+      self.send("#{attr}=",value)
+    end
   end
 
   def self.create_table
@@ -39,4 +40,5 @@ class Dog
   def self.create(hash)
     new_dog = Dog.new
     new_dog.save
+  end
 end
