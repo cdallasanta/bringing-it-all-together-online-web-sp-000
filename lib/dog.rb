@@ -83,7 +83,6 @@ class Dog
     if !searched_dog.empty?
       Dog.new_from_db(searched_dog[0])
     else
-      dog_info = searched_dog[0]
       Dog.create(hash)
     end
   end
