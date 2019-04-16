@@ -70,16 +70,14 @@ class Dog
     Dog.new_from_db(row)
   end
 
-  def self.find_or_create_by(name, breed)
-    binding.pry
-=begin
+  def self.find_or_create_by(hash)
     sql = <<-SQL
       SELECT *
       FROM dogs
       WHERE name = ? AND breed = ?;
     SQL
 
-    searched_dog = DB[:conn].execute(sql, name, breed)
+    searched_dog = DB[:conn].execute(sql, hash[:name], hash[:breed])
 
     if !searched_dog.empty?
       Dog.new_from_db(searched_dog[0])
@@ -87,7 +85,6 @@ class Dog
       dog_info = searched_dog[0]
       Dog.create(id:dog_info[0], name:dog_info[1], breed:dog_info[2])
     end
-=end
   end
 
   def self.find_by_name(name)
