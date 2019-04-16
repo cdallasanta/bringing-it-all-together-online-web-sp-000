@@ -84,7 +84,7 @@ class Dog
       Dog.new_from_db(searched_dog[0])
     else
       dog_info = searched_dog[0]
-      Dog.create(id:dog_info[0], name:dog_info[1], breed:dog_info[2])
+      Dog.create(hash)
     end
   end
 
